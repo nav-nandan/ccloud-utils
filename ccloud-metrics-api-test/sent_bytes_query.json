@@ -1,0 +1,27 @@
+{
+    "aggregations": [
+        {
+            "agg": "SUM",
+            "metric": "io.confluent.kafka.server/sent_bytes"
+        }
+    ],
+    "filter": {
+        "filters": [
+            {
+                "field": "metric.label.cluster_id",
+                "op": "EQ",
+                "value": "<CLUSTER_ID>"
+            }
+        ],
+        "op": "AND"
+    },
+    "granularity": "PT1M",
+    "group_by": [
+        "metric.label.topic"
+    ],
+    "intervals": [
+        "2019-12-19T11:00:00-05:00/2019-12-19T11:05:00-05:00"
+    ],
+    "limit": 25
+}
+
